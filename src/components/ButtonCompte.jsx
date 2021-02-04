@@ -1,12 +1,8 @@
 import React from 'react'
 function ButtonCompte (props) {
-  function clicker () {
-    props.setcompteur()
-  }
-
   return (
     <div>
-      <button onClick={clicker}>ajouter</button>
+      <button onClick={props.clickSetcompteur}>ajouter</button>
     </div>
   )
 }
