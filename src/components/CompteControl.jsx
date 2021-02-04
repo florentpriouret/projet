@@ -1,15 +1,23 @@
 import React from 'react'
 import Compteur from './Compteur'
 import ButtonCompte from './ButtonCompte'
-// eslint-disable-next-line no-unused-vars
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+
 function CompteControl (props) {
+  // const [
+  //   compteur,
+  //   setcompteur
+  // ] = React.useState(0)
+
   return (
     <div>
-      <Compteur />
-      <ButtonCompte clickSetcompteur={() => props.dispatch({ type: 'INCREMENT' })} />
+      <Compteur compteur = {props.compteur} />
+      <ButtonCompte clickSetcompteur={() => (props.dispatch({ type: 'INCREMENT' }))} />
+      {/* <ButtonCompte clickSetcompteur={() => setcompteur(store.dispatch({ type: 'INCREMENT' }))} /> */}
     </div>
   )
 }
-
-export default CompteControl
+const mapStateToProps = state => ({
+  compteur: state.compteur
+})
+export default connect(mapStateToProps)(CompteControl)
